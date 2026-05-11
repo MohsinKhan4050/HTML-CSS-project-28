@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 255, 0.419);
+}
+
+.container {
+    width: 400px;
+    height: auto;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.container .option {
+    border: 2px solid blue;
+    width: 100%;
+    height: 100%;
+    padding:20px;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.4s ease;
+}
+
+.option span {
+    color: blue;
+    font-size: 22px;
+    transition: color 0.4s ease;
+}
+
+#option-1:checked~.option-1 span,
+#option-2:checked~.option-2 span {
+    color: #fff;
+}
+
+.option .dot {
+    width: 20px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+}
+
+.option .dot::before {
+    content: "";
+    position: absolute;
+    background: blue;
+    width: 12px;
+    height: 12px;
+    top: 4px;
+    border-radius: 50%;
+    left: 3px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* ======= */
+#option-1:checked~.option-1 .dot::before,
+#option-2:checked~.option-2 .dot::before {
+    opacity: 1;
+}
+
+#option-1:checked~.option-1,
+#option-2:checked~.option-2 {
+    background-color: blue;
+}
+
+.container input[type="radio"] {
+    display: none;
+}
+
+/* for small screen---- */
+
+@media(max-width:600px){
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 200px;
+    }
+}
